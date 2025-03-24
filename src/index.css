@@ -8,6 +8,16 @@ body {
     color: #000;
 }
 
+.link-block {
+  display: inline-block; /* 让 transform 能影响 */
+  transform: scale(1.4); /* 整体放大 */
+}
+
+.link-block {
+  margin: 0 15px; /* 左右间距 20px */
+  margin-bottom: -20px;
+}
+
 .link-block a {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -92,7 +102,16 @@ body {
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+    color: hsl(121, 100%, 36%) !important;
+    font-size: 1.1em !important
+}
+
+.publication-authors sup {
+  font-size: 0.7em !important
+}
+
+.publication-authors span {
+  font-size: 1.3em !important
 }
 
 .publication-authors a:hover {
