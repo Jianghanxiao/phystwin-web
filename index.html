@@ -1,1 +1,799 @@
-test
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+
+  <title>PhysTwin</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mirror: F0%9F%AA%9E&lt -->
+
+  <link rel="stylesheet" type="text/css" href="./src/slick.css">
+  <link rel="stylesheet" type="text/css" href="./src/slick-theme.css">
+  <link rel="stylesheet" href="./src/bulma.min.css">
+  <link rel="stylesheet" href="./src/bulma-slider.min.css">
+  <link rel="stylesheet" href="./src/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./src/bootstrap.min.css">
+  <link rel="stylesheet" href="./src/font-awesome.min.css">
+  <link rel="stylesheet" href="./src/codemirror.min.css">
+  <link rel="stylesheet" href="./src/app.css">
+  <link rel="stylesheet" href="./src/index.css">
+  <link rel="stylesheet" href="./src/select.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="resources/glide.core.min.css">
+  <link rel="stylesheet" href="resources/glide.theme.min.css">
+  <link rel="stylesheet" href="resources/glide-custom.css">
+  <script src="resources/handlers.js"></script>
+  <script src="./src/jquery.min.js"></script>
+  <script src="./src/bootstrap.min.js"></script>
+  <script src="./src/codemirror.min.js"></script>
+  <script src="./src/clipboard.min.js"></script>
+  <script src="./src/video_comparison.js"></script>
+  <script src="./src/select.js"></script>
+  <script src="./src/bulma-slider.min.js"></script>
+  <script src="./src/bulma-carousel.min.js"></script>
+  <!-- <script src="./src/app.js"></script> -->
+  <script src="./src/index.js"></script>
+  <!-- <script src="./src/slick.js"></script> -->
+
+  <style>
+    .slide-text {
+      text-align: center;
+      font-size: 3.0em; /* Slightly larger text than normal */
+      font-weight: bold;
+      margin-bottom: 10px; /* Add some space between text and video */
+    }
+  </style>
+
+  <script src="resources/glide.min.js"></script>
+  <script>
+    window.onload = function () {
+      new Glide("#dynamic-carousel-app-demo-keyboard", {
+        type: "carousel",
+        perView: 1.00,
+        focusAt: "center",
+        autoplay: 10000,
+        hoverpause: true
+      }).mount();
+      new Glide("#dynamic-carousel-app-demo-teleop", {
+        type: "carousel",
+        perView: 1.00,
+        focusAt: "center",
+        autoplay: 10000,
+        hoverpause: true
+      }).mount();
+      new Glide("#dynamic-carousel-app-demo-mpc", {
+        type: "carousel",
+        perView: 1.00,
+        focusAt: "center",
+        autoplay: 10000,
+        hoverpause: true
+      }).mount();
+      new Glide("#dynamic-carousel-diverse-motions", {
+        type: "carousel",
+        perView: 1.00,
+        focusAt: "center",
+        autoplay: 10000,
+        hoverpause: true
+      }).mount();
+      new Glide("#dynamic-carousel-related-works", {
+        type: "carousel",
+        perView: 1.00,
+        focusAt: "center",
+        autoplay: 10000,
+        hoverpause: true
+      }).mount();
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container" id="header" style="text-align: center; margin: auto;">
+    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+      <h2 class="col-md-12 text-center" id="title">
+        <b>PhysTwin</b>: Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos
+      </h2>
+      <!-- <h3 class="col-md-12 text-center" id="title">
+        <b>Under Submission</b>
+      </h3> -->
+    </div>
+  </div>
+  <script>
+  </script>
+  <div class="container" id="main">
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <!-- <h5 >Supplementary Website.</h5> -->
+        <h5 style="color: #ff6347; font-weight: bold; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);">Best viewed in Google Chrome.</h5>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Applications
+        </h3>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Real-time interactive simulation (keyboard control)
+        </h3>
+        <td align="center" valign="top">
+          <div class="glide" id="dynamic-carousel-app-demo-keyboard">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_sim/double_lift_cloth_3_v1.webm" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Red Carpet.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_sim/double_lift_zebra.webm" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Plush Toy Zebra.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_sim/rope_double_hand_v1.webm" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Rope.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_sim/single_lift_cloth_4_v1.webm" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Blue Carpet.</h4>
+                  </div>
+                  <br />
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                  src="resources/arrow-left-circle-fill.svg" /></span>
+              <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                  src="resources/arrow-right-circle-fill.svg" /></span>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <span class="glide__bullet" data-glide-dir="=0"></span>
+              <span class="glide__bullet" data-glide-dir="=1"></span>
+              <span class="glide__bullet" data-glide-dir="=2"></span>
+              <span class="glide__bullet" data-glide-dir="=3"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Real-time interactive simulation (robot teleoperation)
+        </h3>
+        <td align="center" valign="top">
+          <div class="glide" id="dynamic-carousel-app-demo-teleop">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_dt/cloth_double_blurred.mp4" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Teleoperation Demo 1.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_dt/cloth_single_v2_blurred.mp4" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Teleoperation Demo 2.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_dt/rope_v2_blurred.mp4" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Teleoperation Demo 3.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <video controls muted loop autoplay>
+                    <source src="./src/videos/application_dt/rope_v3_blurred.mp4" type="video/mp4" />
+                  </video>
+                  <div class="slide-text">
+                    <h4>Teleoperation Demo 4.</h4>
+                  </div>
+                  <br/>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                  src="resources/arrow-left-circle-fill.svg" /></span>
+              <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                  src="resources/arrow-right-circle-fill.svg" /></span>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <span class="glide__bullet" data-glide-dir="=0"></span>
+              <span class="glide__bullet" data-glide-dir="=1"></span>
+              <span class="glide__bullet" data-glide-dir="=2"></span>
+              <span class="glide__bullet" data-glide-dir="=3"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Model-based motion planning
+        </h3>
+        <td align="center" valign="top">
+          <div class="glide" id="dynamic-carousel-app-demo-mpc">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="50%">
+                        <img src="./src/videos/application_pl/target_cloth.png" alt="MPC Results" style="width: 100%; height: auto;">
+                        <div class="media-description">
+                          <p>Target Result.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/application_pl/mpc_cloth.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Motion Planning Result.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>MPC Demo (Cloth).</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="50%">
+                        <img src="./src/videos/application_pl/target_rope.png" alt="MPC Results" style="width: 100%; height: auto;">
+                        <div class="media-description">
+                          <p>Target Result.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/application_pl/mpc_rope.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Motion Planning Result.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>MPC Demo (Rope).</h4>
+                  </div>
+                  <br />
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                  src="resources/arrow-left-circle-fill.svg" /></span>
+              <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                  src="resources/arrow-right-circle-fill.svg" /></span>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <span class="glide__bullet" data-glide-dir="=0"></span>
+              <span class="glide__bullet" data-glide-dir="=1"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Diverse object instances
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <center>
+          <div class="video-compare-container" id="ours" style="width: 100%">
+            <video class="video" id="demo_video" loop="" playsinline="" autoplay="" muted=""
+              poster="src/loading.gif" src="src/videos/combined_rendering/double_lift_cloth_1.mp4"
+              onplay="resizeAndPlay(this)">
+            </video>
+            <canvas class="videoMerge" id="demo_videoMerge"></canvas>
+          </div>
+          <!-- <h4 id="demo-description">
+            double_lift_cloth_1.
+          </h4> -->
+          <h4>
+            Visualization
+          </h4>
+          <ul class="nav nav-pills nav-justified" id="sim-view-ul" style="width: 50%">
+            <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeSim(0);">Rendering</a></li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeSim(1);">Tracking</a></li>
+          </ul>
+          <h4>
+            Scene
+          </h4>
+          <!-- First row of scene options -->
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-pills nav-justified" id="scene-view-ul-row1" style="width: 100%">
+                <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeScene(0);">Double hand lift green cloth</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(1);">Single hand lift green cloth</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(2);">Single hand lift green cloth at corner</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(3);">Single hand lift brown cloth at corner</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(4);">Single hand lift brown cloth</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(5);">Double hand lift brown cloth</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-pills nav-justified" id="scene-view-ul-row2" style="width: 100%">
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(6);">Double hand stretch sloth</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(7);">Double hand lift zebra</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(8);">Double hand stretch zebra</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(9);">Single hand push rope</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(10);">Double hand squeeze rope</a></li>
+                <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(11);">Single hand lift rope</a></li>
+              </ul>
+            </div>
+          </div>
+        </center>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Diverse object motions
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <td align="center" valign="top">
+          <div class="glide" id="dynamic-carousel-diverse-motions">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/0/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift side.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/6/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift corner.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/10/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift center.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Green Cloth.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/1/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Fold both sides.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/8/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift corner.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/11/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift center.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Brown Cloth.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/4/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Fold two legs.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/15/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift single leg.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/20/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Push head.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Plush Toy Sloth.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/3/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift hand and leg.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/5/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Fold two hands.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/16/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift single hand.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Plush Toy Zebra.</h4>
+                  </div>
+                  <br/>
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/7/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Fold both sides.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/14/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Lift one side.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/17/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Push center.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Rope.</h4>
+                  </div>
+                  <br/>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                  src="resources/arrow-left-circle-fill.svg" /></span>
+              <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                  src="resources/arrow-right-circle-fill.svg" /></span>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <span class="glide__bullet" data-glide-dir="=0"></span>
+              <span class="glide__bullet" data-glide-dir="=1"></span>
+              <span class="glide__bullet" data-glide-dir="=2"></span>
+              <span class="glide__bullet" data-glide-dir="=3"></span>
+              <span class="glide__bullet" data-glide-dir="=4"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Comparison with related works
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <td align="center" valign="top">
+          <div class="glide" id="dynamic-carousel-related-works">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_gnn/render-double_stretch_zebra-model_50.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>GS-Dynamics.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/spring_gaus_video/double_stretch_zebra/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Spring-Gaus.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/5/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>PhysTwin (Ours).</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Stretch both legs of plushy toy zebra.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_gnn/render-single_push_rope-model_50.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>GS-Dynamics.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/spring_gaus_video/single_push_rope/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Spring-Gaus.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/17/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>PhysTwin (Ours).</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Push rope at center.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_gnn/render-single_clift_cloth_3-model_50.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>GS-Dynamics.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/spring_gaus_video/single_clift_cloth_3/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Spring-Gaus.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/8/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>PhysTwin (Ours).</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Lift cloth at corner.</h4>
+                  </div>
+                  <br />
+                </li>
+                <li class="glide__slide">
+                  <table width="100%">
+                    <tr>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_gnn/render-double_stretch_sloth-model_50.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>GS-Dynamics.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/spring_gaus_video/double_stretch_sloth/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>Spring-Gaus.</p>
+                        </div>
+                      </td>
+                      <td align="center" valign="top" width="33%">
+                        <video controls muted loop autoplay>
+                          <source src="./src/videos/indomain_rendering_map/4/0_integrate.mp4" type="video/mp4" />
+                        </video>
+                        <div class="media-description">
+                          <p>PhysTwin (Ours).</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="slide-text">
+                    <h4>Stretch both legs of plushy toy sloth.</h4>
+                  </div>
+                  <br />
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                  src="resources/arrow-left-circle-fill.svg" /></span>
+              <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                  src="resources/arrow-right-circle-fill.svg" /></span>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <span class="glide__bullet" data-glide-dir="=0"></span>
+              <span class="glide__bullet" data-glide-dir="=1"></span>
+              <span class="glide__bullet" data-glide-dir="=2"></span>
+              <span class="glide__bullet" data-glide-dir="=3"></span>
+            </div>
+          </div>
+        </td>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          References
+        </h3>
+        <ol>
+          <li>
+            Zhang, Mingtong and Zhang, Kaifeng and Li, Yunzhu. 
+            Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling. In CoRL 2024.
+            <a href="https://github.com/robo-alex/gs-dynamics">[code]</a>
+          </li>
+          <li>
+            Zhong, Licheng and Yu, Hong-Xing and Wu, Jiajun and Li, Yunzhu.
+            Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians. In ECCV 2024.
+            <a href="https://github.com/Colmar-zlicheng/Spring-Gaus">[code]</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  
+  </div>
+</body>
+
+
+</html>
