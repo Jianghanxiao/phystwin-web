@@ -15,7 +15,7 @@ body {
 
 .link-block {
   margin: 0 15px; /* 左右间距 20px */
-  margin-bottom: -20px;
+  /* margin-bottom: -20px; */
 }
 
 .link-block a {
@@ -146,24 +146,19 @@ body {
 .publication-body img {
 }
 
-/*
-.results-carousel {
-  overflow: hidden;
-}
-*/
-
 .slick-prev {
 
 }
 
-.results-carousel > div {
-  text-align: center;
+.results-carousel {
+  overflow: hidden;
 }
 
-.results-carousel .results-item {
-  display: inline-block;
-  width: fit-content;
+.results-carousel .item {
+  margin: 5px;
   overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
   padding: 0;
   font-size: 0;
 }
@@ -172,6 +167,15 @@ body {
   margin: 0;
 }
 
+td video {
+  width: 300px; 
+  height: 200px; 
+  object-fit: cover; 
+}
+
+video {
+  border-radius: 10px; 
+}
 
 .interpolation-panel {
   background: #f5f5f5;
@@ -225,6 +229,10 @@ body {
 
 .content model-viewer {
  margin-bottom: 1em;
+}
+
+.content p {
+  font-size: 1.15em; 
 }
 
 .hyper-space-wrapper {
@@ -281,4 +289,52 @@ body {
   height: 2000%;
   width: 2000%;
   max-width: none !important;
+}
+
+.glide__arrows.first{
+  position: absolute;
+  top: 41%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20; /* 确保箭头在其他内容之上 */
+  display: flex;
+  justify-content: space-between;
+  width: 110%; /* 确保箭头占据整个宽度 */
+}
+
+.glide__arrow{
+  display: inline-block;
+  cursor: pointer;
+}
+
+.glide__bullets.first{
+  position: absolute;
+  top: 72%;  /* 调整为距离顶部 10% */
+  left: 50%;
+  transform: translateX(-50%);  /* 水平居中 */
+  z-index: 10;
+  display: flex;
+  justify-content: center;  /* 确保子元素水平居中 */
+}
+
+.glide__bullet{
+  display: inline-block;
+  width: 10px;  /* 你可以根据需要调整 */
+  height: 10px;
+  margin: 0 5px;  /* 间距 */
+  background-color: rgba(0, 0, 0, 0.5);  
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.glide__bullet.active {
+  background-color: rgba(0, 0, 0, 0.8);  
+}
+
+.h2.subtitle {
+  font-size: 15em !important;
+}
+
+.abstract {
+  margin-top: -50px !important;
 }
