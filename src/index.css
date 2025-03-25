@@ -167,7 +167,7 @@ body {
   margin: 0;
 }
 
-td video {
+.tt video {
   width: 300px; 
   height: 200px; 
   object-fit: cover; 
@@ -182,9 +182,13 @@ video {
   border-radius: 10px;
 }
 
+.test video {
+  border-radius: 10px !important;
+}
+
 .interpolation-panel .interpolation-image {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .interpolation-video-column {
@@ -299,7 +303,7 @@ video {
   z-index: 20; /* 确保箭头在其他内容之上 */
   display: flex;
   justify-content: space-between;
-  width: 110%; /* 确保箭头占据整个宽度 */
+  width: 111%; /* 确保箭头占据整个宽度 */
 }
 
 .glide__arrow{
@@ -342,4 +346,70 @@ video {
 
 .framework p {
   margin-top: 15px;
+}
+
+.pp p {
+  margin-top: 4px;
+  font-size: 1.1em;
+}
+
+.second {
+  margin-top: 2px;
+}
+
+.glide__arrows.third{
+  position: absolute;
+  top: 41%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20; /* 确保箭头在其他内容之上 */
+  display: flex;
+  justify-content: space-between;
+  width: 114%; /* 确保箭头占据整个宽度 */
+}
+
+.glide__bullets.third{
+  position: absolute;
+  top: 73%;  /* 调整为距离顶部 10% */
+  left: 50%;
+  transform: translateX(-50%);  /* 水平居中 */
+  z-index: 10;
+  display: flex;
+  justify-content: center;  /* 确保子元素水平居中 */
+}
+
+.comparison {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.glide__arrows.fourth {
+  position: absolute;
+  top: 46%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20; /* 确保箭头在其他内容之上 */
+  display: flex;
+  justify-content: space-between;
+  width: 102%; /* 确保箭头占据整个宽度 */
+}
+
+.glide__bullets.fourth {
+  position: absolute;
+  top: 93%;  /* 调整为距离顶部 10% */
+  left: 50%;
+  transform: translateX(-50%);  /* 水平居中 */
+  z-index: 10;
+  display: flex;
+  justify-content: center;  /* 确保子元素水平居中 */
+}
+
+.application video {
+  width: 800px; 
+  /* height: 400px;  */
+  object-fit: cover; 
+}
+
+.bib {
+  margin-top: -50px;
 }
