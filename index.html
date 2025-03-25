@@ -380,9 +380,99 @@
           </div>
         </div>
         <!--/ Abstract. -->
-
       </div>
 
+      <div class="container  is-max-widescreen framework">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-1" style="text-align: left;">PhysTwin Framework</h2>
+            <div style="text-align: center;">
+              <img src="src/imgs/pipeline.png" class="interpolation-image" width="100%" height="100%" />
+            </div>
+            <div class="content has-text-justified ">
+              <p style="font-size: 18px;">
+                Overview of our <b>PhysTwin</b> framework: the core representation includes <b>geometry, topology, physical parameters, and Gaussian kernels</b>. To optimize PhysTwin, we minimize the rendering loss and the discrepancy between simulated and observed geometry/motion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container  is-max-widescreen framework">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-2" style="text-align: left;">Visualziation of Results (Rendering & Tracking)</h2>
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <center>
+                  <h4>
+                    Visualization Choice
+                  </h4>
+                  <ul class="nav nav-pills nav-justified" id="sim-view-ul" style="width: 50%">
+                    <li role="presentation" class="active"><a href="javascript: void(0);"
+                        onclick="ChangeSim(0);">Rendering</a></li>
+                    <li role="presentation"><a href="javascript: void(0);" onclick="ChangeSim(1);">Tracking</a></li>
+                  </ul>
+                  <h4>
+                    Scenarios
+                  </h4>
+                  <!-- First row of scene options -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ul class="nav nav-pills nav-justified" id="scene-view-ul-row1" style="width: 100%">
+                        <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeScene(0);">Double hand lift
+                          sweater</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(1);">Double
+                           streth sloth</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(2);">Single push
+                            hemp rope</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(3);">Single lift
+                            grey cloth at corner</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(4);">Double lift
+                            green cloth</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(5);">Single lift
+                            red cloth</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ul class="nav nav-pills nav-justified" id="scene-view-ul-row2" style="width: 100%">
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(6);">Single lift
+                            sloth</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(7);">Single lift
+                            blue cloth</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(8);">Double fold 
+                            skirit</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(9);">Double fold
+                            package</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(10);">Double lift
+                            zebra</a></li>
+                        <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(11);">Single lift
+                            rope</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="video-compare-container" id="ours" style="width: 100%">
+                    <video class="video" id="demo_video" loop="" playsinline="" autoplay="" muted="" poster="src/loading.gif"
+                      src="src/videos/combine_rendering/cloth_red_lift/0_combine.mp4" onplay="resizeAndPlay(this)">
+                    </video>
+                    <canvas class="videoMerge" id="demo_videoMerge"></canvas>
+                  </div>
+                  <!-- <h4 id="demo-description">
+                  double_lift_cloth_1.
+                </h4> -->
+                </center>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h3>
@@ -434,6 +524,8 @@
           </td>
         </div>
       </div>
+
+      
 
 
       <div class="row">
@@ -576,82 +668,6 @@
           </td>
         </div>
       </div>
-
-
-
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h3>
-            Diverse object instances
-          </h3>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <center>
-            <div class="video-compare-container" id="ours" style="width: 100%">
-              <video class="video" id="demo_video" loop="" playsinline="" autoplay="" muted="" poster="src/loading.gif"
-                src="src/videos/combined_rendering/double_lift_cloth_1.mp4" onplay="resizeAndPlay(this)">
-              </video>
-              <canvas class="videoMerge" id="demo_videoMerge"></canvas>
-            </div>
-            <!-- <h4 id="demo-description">
-            double_lift_cloth_1.
-          </h4> -->
-            <h4>
-              Visualization
-            </h4>
-            <ul class="nav nav-pills nav-justified" id="sim-view-ul" style="width: 50%">
-              <li role="presentation" class="active"><a href="javascript: void(0);"
-                  onclick="ChangeSim(0);">Rendering</a></li>
-              <li role="presentation"><a href="javascript: void(0);" onclick="ChangeSim(1);">Tracking</a></li>
-            </ul>
-            <h4>
-              Scene
-            </h4>
-            <!-- First row of scene options -->
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="nav nav-pills nav-justified" id="scene-view-ul-row1" style="width: 100%">
-                  <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeScene(0);">Double
-                      hand lift green cloth</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(1);">Single hand lift
-                      green cloth</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(2);">Single hand lift
-                      green cloth at corner</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(3);">Single hand lift
-                      brown cloth at corner</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(4);">Single hand lift
-                      brown cloth</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(5);">Double hand lift
-                      brown cloth</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="nav nav-pills nav-justified" id="scene-view-ul-row2" style="width: 100%">
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(6);">Double hand stretch
-                      sloth</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(7);">Double hand lift
-                      zebra</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(8);">Double hand stretch
-                      zebra</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(9);">Single hand push
-                      rope</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(10);">Double hand squeeze
-                      rope</a></li>
-                  <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(11);">Single hand lift
-                      rope</a></li>
-                </ul>
-              </div>
-            </div>
-          </center>
-        </div>
-      </div>
-
-
 
 
 

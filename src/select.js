@@ -2,38 +2,21 @@ var currentSimList = ["Rendering", "Tracking"];
 var currentSim = "Rendering";
 var currentSimId = 0;
 var currentSceneList = [
-    "double_lift_cloth_1",
-    "single_lift_cloth_1", 
-    "single_clift_cloth_1",    
-    "single_clift_cloth_3", 
-    "single_lift_cloth_3",
-    "double_lift_cloth_3", 
+    "cloth_red_lift",
     "double_stretch_sloth",
-    "double_lift_zebra", 
-    "double_stretch_zebra",
-    "single_push_rope", 
-    "rope_double_hand",    
+    "single_push_rope_1", 
+    "single_clift_cloth_3", 
+    "double_lift_cloth_1", 
+    "single_lift_cloth",    
+    "single_lift_sloth",
+    "single_lift_cloth_4", 
+    "cloth_skirt_2_fold", 
+    "weird_package", 
+    "double_stretch_zebra",   
     "single_lift_rope"
 ];
 var currentScene = "double_lift_cloth_1";
 var currentSceneId = 0;
-
-// var currentInstDescriptions = [
-//     "double_lift_cloth_1",
-//     "single_lift_cloth_1", 
-//     "single_clift_cloth_1",    
-//     "single_clift_cloth_3", 
-//     "single_lift_cloth_3",
-//     "double_lift_cloth_3", 
-//     "double_stretch_sloth",
-//     "double_lift_zebra", 
-//     "double_stretch_zebra",
-//     "single_push_rope", 
-//     "rope_double_hand",    
-//     "single_lift_rope"
-// ];
-// var currentInst = "double_lift_cloth_1";
-// var currentInstId = 0;
 
 
 function ChangeSim(idx){
@@ -47,9 +30,9 @@ function ChangeSim(idx){
     currentSimId = idx;
 
     if (currentSim == "Rendering"){
-        document.getElementById("demo_video").src = "src/videos/combined_rendering/" + currentScene + '.mp4';
+        document.getElementById("demo_video").src = "src/videos/combine_rendering/" + currentScene + '/0_combine.mp4';
     } else {
-        document.getElementById("demo_video").src = "src/videos/combined_tracking/" + currentScene + '.mp4';
+        document.getElementById("demo_video").src = "src/videos/combine_tracking/" + currentScene + '/0_combine.mp4';
     }
 }
 
@@ -74,9 +57,9 @@ function ChangeScene(idx){
     currentSceneId = idx;
 
     if (currentSim == "Rendering"){
-        document.getElementById("demo_video").src = "src/videos/combined_rendering/" + currentScene + '.mp4';
+        document.getElementById("demo_video").src = "src/videos/combine_rendering/" + currentScene + '/0_combine.mp4';
     } else {
-        document.getElementById("demo_video").src = "src/videos/combined_tracking/" + currentScene + '.mp4';
+        document.getElementById("demo_video").src = "src/videos/combine_tracking/" + currentScene + '/0_combine.mp4';
     }
 
     // currentInst = currentInstDescriptions[idx];

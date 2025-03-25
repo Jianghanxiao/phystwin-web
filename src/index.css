@@ -337,4 +337,9 @@ video {
 
 .abstract {
   margin-top: -50px !important;
+  margin-bottom: 10px;
+}
+
+.framework p {
+  margin-top: 15px;
 }
