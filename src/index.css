@@ -370,7 +370,7 @@ video {
 
 .glide__bullets.third{
   position: absolute;
-  top: 73%;  /* 调整为距离顶部 10% */
+  top: 63%;  /* 调整为距离顶部 10% */
   left: 50%;
   transform: translateX(-50%);  /* 水平居中 */
   z-index: 10;
