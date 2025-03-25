@@ -404,6 +404,16 @@ video {
   justify-content: center;  /* 确保子元素水平居中 */
 }
 
+.glide__bullets.fifth {
+  position: absolute;
+  top: 80%;  /* 调整为距离顶部 10% */
+  left: 50%;
+  transform: translateX(-50%);  /* 水平居中 */
+  z-index: 10;
+  display: flex;
+  justify-content: center;  /* 确保子元素水平居中 */
+}
+
 .application video {
   width: 800px; 
   /* height: 400px;  */
