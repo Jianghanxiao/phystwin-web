@@ -6,6 +6,7 @@
 
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="resources/favicon.svg">
   <!-- mirror: F0%9F%AA%9E&lt -->
 
   <link rel="stylesheet" type="text/css" href="./src/slick.css">
@@ -23,6 +24,8 @@
   <link rel="stylesheet" href="resources/glide.core.min.css">
   <link rel="stylesheet" href="resources/glide.theme.min.css">
   <link rel="stylesheet" href="resources/glide-custom.css">
+  <link rel="stylesheet" href="resources/design.css">
+  <script defer src="resources/design.js"></script>
   <script src="resources/handlers.js"></script>
   <script src="./src/jquery.min.js"></script>
   <script src="./src/bootstrap.min.js"></script>
@@ -71,10 +74,16 @@
       }).mount();
       new Glide("#dynamic-carousel-diverse-motions", {
         type: "carousel",
-        perView: 1.00,
-        focusAt: "center",
-        autoplay: 10000,
-        hoverpause: true
+        perView: 3,
+        perSwipe: "|",
+        gap: 12,
+        focusAt: 0,
+        autoplay: false,
+        hoverpause: true,
+        breakpoints: {
+          900: { perView: 2 },
+          640: { perView: 1, peek: { before: 0, after: 38 } }
+        }
       }).mount();
       new Glide("#dynamic-carousel-related-works", {
         type: "carousel",
@@ -87,15 +96,41 @@
   </script>
 </head>
 
-<body>
+<body class="project-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="project-nav">
+    <div class="project-nav__inner">
+      <a class="project-nav__brand" href="https://jianghanxiao.github.io/" aria-label="Hanxiao Jiang homepage">
+        <span class="project-nav__mark">HJ</span>
+        <span class="project-nav__owner">Hanxiao Jiang</span>
+      </a>
+      <a class="project-nav__title" href="#header">PhysTwin</a>
+      <nav class="project-nav__links" aria-label="Project sections">
+        <a href="#construct">Method</a>
+        <a href="#verify">Results</a>
+        <a href="#applications">Applications</a>
+      </nav>
+      <a class="project-nav__repo" target="_blank" rel="noopener noreferrer"
+        href="https://github.com/Jianghanxiao/PhysTwin">
+        <img src="resources/github.svg" alt="">
+        <span>GitHub</span>
+        <span data-github-stars>Open source</span>
+        <b aria-hidden="true">&#8599;</b>
+      </a>
+    </div>
+  </header>
+
   <div class="container" id="header" style="text-align: center; margin: auto;">
-    <section class="hero">
+    <div class="hero-stack">
+    <section class="hero project-hero">
       <div class="hero-body">
         <div class="container is-fullhd">
           <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">PhysTwin: Physics-Informed Reconstruction and Simulation <br>of
-                Deformable Objects from Videos</h1>
+            <div class="column has-text-centered project-hero__copy">
+              <div class="project-hero__eyebrow">ICCV 2025 <span></span> Research Project</div>
+              <h1 class="title is-1 publication-title"><span class="publication-title__name">PhysTwin:</span>
+                Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos</h1>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
                   <a target="_blank" href="https://jianghanxiao.github.io/">Hanxiao Jiang</a><sup>1,2</sup>,
@@ -158,13 +193,26 @@
                 </div>
               </div>
             </div>
+            <aside class="twin-specimen" aria-hidden="true">
+              <div class="twin-specimen__header">
+                <span>Twin specimen / 01</span>
+                <i></i>
+              </div>
+              <img src="resources/phystwin-motif.svg" alt="">
+              <div class="twin-specimen__legend">
+                <span>Geometry</span>
+                <span>Topology</span>
+                <span>Physics</span>
+                <span>Appearance</span>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <h2 class="subtitle has-text-centered" style="position: relative; top: -30px; font-size: 22px; color: orangered;">
-      [Update] Explore more experimental features, including multiple PhysTwin interactions,</br> control force visualization, and material analysis, in our Github page <a target="_blank" href="https://github.com/Jianghanxiao/PhysTwin"
+    <h2 class="subtitle has-text-centered project-update">
+      [Update] Explore more experimental features, including multiple PhysTwin interactions,<br> control force visualization, and material analysis, in our Github page <a target="_blank" rel="noopener noreferrer" href="https://github.com/Jianghanxiao/PhysTwin"
       class="external-link button is-normal is-rounded is-dark">
       <span class="icon">
         <i class="fab fa-github"></i>
@@ -172,176 +220,46 @@
       <span>Code</span>
     </a>
     </h2>
+    </div>
 
 
     <div class="container" id="main">
-      <div class="container is-max-widescreen">
+      <div class="container is-max-widescreen motion-atlas" id="motion-atlas">
+        <div class="motion-atlas__header">
+          <div>
+            <span class="section-index">Motion Atlas / 15 interactions</span>
+            <h2>Reconstruct. Resimulate. Predict.</h2>
+          </div>
+          <div class="motion-atlas__tags" aria-hidden="true">
+            <span>Rope</span><span>Cloth</span><span>Plush</span><span>Package</span>
+          </div>
+        </div>
         <div class="col-md-10 col-md-offset-1">
-          <td class="first_video" align="center" valign="top">
-            <div class="glide te" id="dynamic-carousel-diverse-motions">
+          <div class="first_video carousel-shell">
+            <div class="glide te project-showreel" id="dynamic-carousel-diverse-motions" aria-label="PhysTwin motion examples">
               <div class="glide__track tt pp" data-glide-el="track">
                 <ul class="glide__slides">
-                  <li class="glide__slide">
-                    <table width="100%">
-                      <tr>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/7/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Fold both sides.</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/14/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift one side.</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/17/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Push center.</p>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                    <br />
-                  </li>
-                  <li class="glide__slide">
-                    <table width="100%">
-                      <tr>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/0/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description" >
-                            <p>Lift side</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/6/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift corner</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/10/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift center</p>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                    <br />
-                  </li>
-                  <li class="glide__slide">
-                    <table width="100%">
-                      <tr>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/3/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift hand and leg</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/5/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Fold two hands</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/16/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift single hand</p>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                    <br />
-                  </li>
-                  <li class="glide__slide">
-                    <table width="100%">
-                      <tr>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/1/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Fold both sides</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/8/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift corner</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/11/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift center</p>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                    <br />
-                  </li>
-                  <li class="glide__slide">
-                    <table width="100%">
-                      <tr>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/4/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Fold two legs</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/15/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Lift single leg</p>
-                          </div>
-                        </td>
-                        <td align="center" valign="top">
-                          <video controls muted loop autoplay>
-                            <source src="./src/videos/indomain_rendering_map/20/0_integrate.mp4" type="video/mp4" />
-                          </video>
-                          <div class="media-description">
-                            <p>Push head</p>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                    <br />
-                  </li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/7/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Fold both sides.</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/14/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift one side.</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/17/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Push center.</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/0/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift side</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/6/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift corner</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/10/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift center</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/3/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift hand and leg</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/5/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Fold two hands</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/16/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift single hand</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/1/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Fold both sides</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/8/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift corner</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/11/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift center</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/4/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Fold two legs</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/15/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Lift single leg</p></div></li>
+                  <li class="glide__slide motion-card"><video controls muted loop autoplay><source src="./src/videos/indomain_rendering_map/20/0_integrate.mp4" type="video/mp4" /></video><div class="media-description"><p>Push head</p></div></li>
                 </ul>
               </div>
               <div class="glide__arrows first" data-glide-el="controls">
-                <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+                <span class="glide__arrow glide__arrow--left" data-glide-dir="|<"><img
                     src="resources/arrow-left-circle-fill.svg" /></span>
-                <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+                <span class="glide__arrow glide__arrow--right" data-glide-dir="|>"><img
                     src="resources/arrow-right-circle-fill.svg" /></span>
               </div>
               <div class="glide__bullets first" data-glide-el="controls[nav]">
@@ -349,18 +267,30 @@
                 <span class="glide__bullet" data-glide-dir="=1"></span>
                 <span class="glide__bullet" data-glide-dir="=2"></span>
                 <span class="glide__bullet" data-glide-dir="=3"></span>
+                <span class="glide__bullet" data-glide-dir="=4"></span>
+                <span class="glide__bullet" data-glide-dir="=5"></span>
+                <span class="glide__bullet" data-glide-dir="=6"></span>
+                <span class="glide__bullet" data-glide-dir="=7"></span>
+                <span class="glide__bullet" data-glide-dir="=8"></span>
+                <span class="glide__bullet" data-glide-dir="=9"></span>
+                <span class="glide__bullet" data-glide-dir="=10"></span>
+                <span class="glide__bullet" data-glide-dir="=11"></span>
+                <span class="glide__bullet" data-glide-dir="=12"></span>
+                <span class="glide__bullet" data-glide-dir="=13"></span>
+                <span class="glide__bullet" data-glide-dir="=14"></span>
               </div>
             </div>
-          </td>
+          </div>
         </div>
       </div>
 
-      <h2 class="subtitle has-text-centered" style="position: relative; top: -50px; font-size: 18px;">
-        </br>
+      <h2 class="subtitle has-text-centered project-tagline">
         Our PhysTwin can effectively <b>reconstruct & resimulate</b> visual observations and make precise <b>future predictions</b> <br>for different types of objects under various interactions, whether with one hand or both hands.
       </h2>
 
-      <div class="container  is-max-desktop abstract">
+      <section class="chapter-card chapter-card--construct" id="construct">
+        <div class="chapter-card__tab"><span>01</span> Construct the Twin</div>
+      <div class="container is-max-desktop abstract project-section" data-section="01 / From Video">
         <!-- Abstract. -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
@@ -393,12 +323,15 @@
         <!--/ Abstract. -->
       </div>
 
-      <div class="container  is-max-widescreen framework">
+      <div class="container is-max-widescreen framework project-section" data-section="02 / Build the Twin">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-1" style="text-align: left;">PhysTwin Framework</h2>
             <div style="text-align: center;">
               <img src="src/imgs/pipeline.png" class="interpolation-image" width="100%" height="100%" />
+            </div>
+            <div class="representation-tags" aria-hidden="true">
+              <span>Geometry</span><span>Topology</span><span>Physical parameters</span><span>Gaussian kernels</span>
             </div>
             <div class="content has-text-justified ">
               <p style="font-size: 18px;">
@@ -408,12 +341,15 @@
           </div>
         </div>
       </div>
+      </section>
 
-      <div class="container  is-max-widescreen framework">
+      <section class="chapter-card chapter-card--verify" id="verify">
+        <div class="chapter-card__tab"><span>02</span> Verify the Twin</div>
+      <div class="container is-max-widescreen framework project-section" data-section="03 / Re-render & Track">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-2" style="text-align: left;">Visualization of Results (Rendering & Tracking)</h2>
-            <div class="row">
+            <div class="row results-lab">
               <div class="col-md-10 col-md-offset-1">
                 <center>
                   <h4>
@@ -483,17 +419,17 @@
       </div>
 
 
-      <div class="container  is-max-widescreen comparison">
+      <div class="container is-max-widescreen comparison project-section" data-section="04 / Benchmark">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-2" style="text-align: left;">Comparison with Prior Work</h2>
             <div class="col-md-10 col-md-offset-1">
-              <td align="center" valign="top">
+              <div class="carousel-shell">
                 <div class="glide pp" id="dynamic-carousel-related-works">
                   <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
                       <li class="glide__slide">
-                        <table width="100%">
+                        <table class="media-grid media-grid--comparison" width="100%">
                           <tr>
                             <td align="center" valign="top" width="33%">
                               <video controls muted loop autoplay>
@@ -526,7 +462,7 @@
                         <br />
                       </li>
                       <li class="glide__slide">
-                        <table width="100%">
+                        <table class="media-grid media-grid--comparison" width="100%">
                           <tr>
                             <td align="center" valign="top" width="33%">
                               <video controls muted loop autoplay>
@@ -559,7 +495,7 @@
                         <br />
                       </li>
                       <li class="glide__slide">
-                        <table width="100%">
+                        <table class="media-grid media-grid--comparison" width="100%">
                           <tr>
                             <td align="center" valign="top" width="33%">
                               <video controls muted loop autoplay>
@@ -593,7 +529,7 @@
                         <br />
                       </li>
                       <li class="glide__slide">
-                        <table width="100%">
+                        <table class="media-grid media-grid--comparison" width="100%">
                           <tr>
                             <td align="center" valign="top" width="33%">
                               <video controls muted loop autoplay>
@@ -640,64 +576,69 @@
                     <span class="glide__bullet" data-glide-dir="=3"></span>
                   </div>
                 </div>
-              </td>
+              </div>
             </div>
         
 
           </div>
         </div>
       </div>
+      </section>
 
       
 
-      <div class="container  is-max-widescreen framework">
+      <section class="chapter-card applications-section" id="applications">
+        <div class="chapter-card__tab"><span>03</span> Use the Twin</div>
+      <div class="container is-max-widescreen framework project-section" data-section="05 / Interact & Plan">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-2" style="text-align: left;">Applications (All Real-Time 1x)</h2>
+            <div class="application-grid">
+            <section class="application-block">
             <h3> Real-time Interactive Simulation with Keyboard Control</h3>
-            <td align="center" valign="top">
+            <div class="carousel-shell">
               <div class="glide application" id="dynamic-carousel-app-demo-keyboard">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/blue_cloth.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/blue_cloth.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/sloth.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/sloth.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/grey_cloth.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/grey_cloth.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/single_rope.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/single_rope.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/double_zebra.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/double_zebra.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/red_cloth.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/red_cloth.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
                     <li class="glide__slide">
                       <video controls muted loop autoplay>
-                        <source src="./src/videos/application_sim/double_rope.webm" type="video/mp4" />
+                        <source src="./src/videos/application_sim/double_rope.webm" type="video/webm" />
                       </video>
                       <br />
                     </li>
@@ -719,10 +660,11 @@
                   <span class="glide__bullet" data-glide-dir="=6"></span>
                 </div>
               </div>
-            </td>
-            
+            </div>
+            </section>
+            <section class="application-block">
             <h3> Real-time Interactive Simulation with Robot Teleoperation</h3>
-            <td align="center" valign="top">
+            <div class="carousel-shell">
               <div class="glide application" id="dynamic-carousel-app-demo-teleop">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
@@ -765,15 +707,16 @@
                   <span class="glide__bullet" data-glide-dir="=3"></span>
                 </div>
               </div>
-            </td>
-            
+            </div>
+            </section>
+            <section class="application-block application-block--wide">
             <h3> Model-based Robot Manipulation Planning</h3>
-            <td align="center" valign="top">
+            <div class="carousel-shell">
               <div class="glide" id="dynamic-carousel-app-demo-mpc">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                     <li class="glide__slide">
-                      <table width="100%">
+                      <table class="media-grid media-grid--duo" width="100%">
                         <tr>
                           <td align="center" valign="top" width="50%">
                             <img src="./src/videos/application_pl/target_cloth.png" alt="MPC Results"
@@ -795,7 +738,7 @@
                       <br />
                     </li>
                     <li class="glide__slide">
-                      <table width="100%">
+                      <table class="media-grid media-grid--duo" width="100%">
                         <tr>
                           <td align="center" valign="top" width="50%">
                             <img src="./src/videos/application_pl/target_rope.png" alt="MPC Results"
@@ -829,35 +772,40 @@
                   <span class="glide__bullet" data-glide-dir="=1"></span>
                 </div>
               </div>
-            </td>
+            </div>
+            </section>
+            </div>
           </div>
         </div>
       </div>
+      </section>
       
       
-      <section class="section" id="BibTeX" style="position: relative; top: -40px">
+      <section class="closing-card">
+      <section class="section project-section project-section--compact" id="acknowledgement" data-section="06 / Credits">
         <div class="container is-max-widescreen pp" style="text-align: left; ">
           <h2 class="title">Acknowledgement</h2>
           <p>This work is partially supported by the Toyota Research Institute (TRI), the Sony Group Corporation, Google, Dalus AI, the DARPA TIAMAT program (HR0011-24-9-0430), the Intel AI SRS gift, Amazon-Illinois AICE grant, Meta Research Grant, IBM IIDAI Grant, and NSF Awards #2331878, #2340254, #2312102, #2414227, and #2404385. We greatly appreciate the NCSA for providing computing resources. This article solely reflects the opinions and conclusions of its authors and should not be interpreted as necessarily representing the official policies, either expressed or implied, of the sponsors. We also thank Mandi Zhao for the inspiring discussions and Bingjie Tang for helping with figure polishing. </p>
         </div>
       </section>
 
-      <section class="section bib" id="BibTeX" style="position: relative; top: -40px">
+      <section class="section bib project-section project-section--compact" id="BibTeX" data-section="07 / Citation">
         <div class="container is-max-widescreen" style="text-align: left; ">
           <h2 class="title">BibTeX</h2>
           <pre><code>@article{jiang2025phystwin,
-            title={PhysTwin: Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos},
-            author={Jiang, Hanxiao and Hsu, Hao-Yu and Zhang, Kaifeng and Yu, Hsin-Ni and Wang, Shenlong and Li, Yunzhu},
-            journal={ICCV},
-            year={2025}
-        }</code></pre>
+  title={PhysTwin: Physics-Informed Reconstruction and Simulation of Deformable Objects from Videos},
+  author={Jiang, Hanxiao and Hsu, Hao-Yu and Zhang, Kaifeng and Yu, Hsin-Ni and Wang, Shenlong and Li, Yunzhu},
+  journal={ICCV},
+  year={2025}
+}</code></pre>
         </div>
+      </section>
       </section>
     
     
       <footer class="footer">
                 <p>
-                  Send feedback and questions to <a href="hanxiao.jiang@columbia.edu">Hanxiao Jiang</a>. Website template borrowed from <a href="https://climatenerf.github.io/">ClimateNeRF</a>, <A
+                  Send feedback and questions to <a href="mailto:hanxiao.jiang@columbia.edu">Hanxiao Jiang</a>. Website template borrowed from <a href="https://climatenerf.github.io/">ClimateNeRF</a>, <A
                   href="https://dorverbin.github.io/refnerf/index.html">RefNeRF</a>, and <A
                   href="https://nerfies.github.io/">Nerfies</A>.
                 </p>
